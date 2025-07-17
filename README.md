@@ -73,6 +73,27 @@ async def my_function():
     print(f"Current trace ID: {trace_id}")
 ```
 
+### Integration with Existing Middleware
+
+If you already have context middleware (e.g., for user authentication), you can integrate trace functionality without conflicts:
+
+```python
+from fastapi_trace import create_trace_middleware
+
+async def custom_context_hook(request):
+    # Your existing context setup logic (e.g., Azure user ID)
+    if auth_header := request.headers.get("Authorization"):
+        # Extract and set user context
+        pass
+
+# Create middleware with hooks
+trace_middleware = create_trace_middleware(
+    pre_process_hook=custom_context_hook,
+)
+app.middleware("http")(trace_middleware())
+```
+
+
 ### Custom Logging Setup
 
 ```python

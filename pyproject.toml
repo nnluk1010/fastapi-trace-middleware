@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fastapi-trace-middleware"
-version = "1.0.0"
+version = "1.0.3"
 authors = [
     {name = "nelson", email = "nnluk1010@gmail.com"},
 ]
@@ -51,7 +51,7 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["fastapi_trace*"]
+include = ["fastapi_trace"]
 
 [tool.black]
 line-length = 88
