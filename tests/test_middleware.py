@@ -1,3 +1,4 @@
+# pytest tests/test_middleware.py -v
 import pytest
 from fastapi import FastAPI, Request
 from fastapi.testclient import TestClient
